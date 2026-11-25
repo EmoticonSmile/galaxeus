@@ -49,7 +49,7 @@
 </div>
 
 <div class="dl">
-  <a href="GALAXEUS.IMG" download onclick="hit('dos')">GALAXEUS.IMG</a>
+  <a href="GALAXEUS.IMG" download onclick="hit('img')">GALAXEUS.IMG</a>
   <small>Galaxeus v8.40.5 1.44 MB Floppy Booter Image</small>
   <code>Total downloads: <span id="img">…</span></code>
 </div>
@@ -61,12 +61,12 @@
 </div>
 
 <script>
-const url = 'https://abacus.jasoncameron.dev/';
-const ns  = 'pling-galaxeus-x7k2q/';
+const api = 'https://countapi.mileshilliard.com/api/v1/';
+const prefix = 'pling-galaxeus-x7k2q-';
 
 function count(id, action) {
-  fetch(url + action + '/' + ns + id, {keepalive: true})
-    .then(r => r.json())
+  fetch(api + action + '/' + prefix + id, { keepalive: true })
+    .then(r => r.ok ? r.json() : { value: 0 })
     .then(d => document.getElementById(id).textContent = d.value ?? 0)
     .catch(() => document.getElementById(id).textContent = '0');
 }
