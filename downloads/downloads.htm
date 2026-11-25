@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pling's Galaxeus Page</title>
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <style>
+      .dl   { margin: 24px 0; }
+      .dl a {
+             display: inline-block;
+             padding: 6px 16px;
+             background: #007bff;
+             color: #fff;
+             font-weight: bold;
+             text-decoration: none;
+             border-radius: 4px;
+       }
+      .dl a:hover { background: #3399ff; }
+      .dl small { display: block; margin: 8px 0 4px; opacity: .8; }
+      .dl code { opacity: .7; }
+    </style>
+</head>
+
+<body>
+
+<!-- Canvas for the stars -->
+<canvas id="star-bg"></canvas>
+
+<!-- Page content -->
+<div class="content">
+    
+<div class="header-style-sub">
+<img src="downloads-crt.png" alt="Downloads">
+</div>
+
+<a href="../home.htm" class="back-button">back</a>
+
+<p>Want to take Galaxeus for a spin? Grab the files below to run it in real DOS or DOSBox, boot it straight from a real floppy disk (assuming you can still find one without bad sectors!), or burn it onto a 64 KB EPROM for a true diskless network card boot. No multi-gigabyte updates, no bloated game engines - just 56.1 KB of pure x86 assembly where every single byte had to earn its place! And yet still 7.9 KB of free memory real estate left - practically enough space to extend the digital house with a party room!</p>
+
+<br>
+
+<div class="dl">
+  <a href="galaxeus.zip" download onclick="hit('dos')">galaxeus.zip</a>
+  <small>Galaxeus v8.40.5 for DOS</small>
+  <code>Total downloads: <span id="dos">…</span></code>
+</div>
+
+<div class="dl">
+  <a href="galaxeus.img" download onclick="hit('dos')">galaxeus.img</a>
+  <small>Galaxeus v8.40.5 1.44 MB Floppy Booter Image</small>
+  <code>Total downloads: <span id="img">…</span></code>
+</div>
+
+<div class="dl">
+  <a href="galaxeus.bin" download onclick="hit('rom')">galaxeus.bin</a>
+  <small>Galaxeus v8.40.5 64 KB BOOT ROM for NICs</small>
+  <code>Total downloads: <span id="rom">…</span></code>
+</div>
+
+<script>
+const url = 'https://abacus.jasoncameron.dev/';
+const ns  = 'pling-galaxeus-x7k2q/';
+
+function count(id, action) {
+  fetch(url + action + '/' + ns + id, {keepalive: true})
+    .then(r => r.json())
+    .then(d => document.getElementById(id).textContent = d.value ?? 0)
+    .catch(() => document.getElementById(id).textContent = '0');
+}
+
+function hit(id) { count(id, 'hit'); }
+
+count('dos', 'get');
+count('img', 'get');
+count('rom', 'get');
+</script>
+
+<script src="../script/stars.js"></script>
+ 
+</body>
+</html>
