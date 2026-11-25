@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxeus Clips</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+<!-- Canvas for the stars -->
+<canvas id="star-bg"></canvas>
+
+<!-- Page content -->
+<div class="content">
+
+<div class="header-style-sub">
+<img src="clips-crt.png" alt="Galaxeus clips on Youtube">
+</div>
+
+<a href="../home.htm" class="back-button">back</a>
+
+<style>
+  .galaxeus-videos {
+    max-width: 720px;
+    margin: 2rem 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+  }
+  .galaxeus-videos p {
+    margin-bottom: 1.25rem;
+  }
+  .galaxeus-channel-wrap {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 1.1rem;
+    margin-bottom: 1.25rem;
+  }
+  .galaxeus-channel-link {
+    display: inline-block;
+    padding: 0.45rem 0.9rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #fff;
+    background: #cc0000;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+  }
+  .galaxeus-channel-link:hover {
+    background: #a30000;
+  }
+  .galaxeus-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .galaxeus-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .galaxeus-card:hover {
+    transform: translateX(4px);
+    border-color: #cc0000;
+  }
+  .galaxeus-card-title {
+    font-weight: 600;
+    font-size: 1.00rem;
+    display: block;
+  }
+  .galaxeus-card-sub {
+    font-size: 0.85rem;
+    opacity: 0.75;
+  }
+  .galaxeus-badge {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    background: rgba(128, 128, 128, 0.15);
+    white-space: nowrap;
+    margin-left: 1rem;
+  }
+</style>
+
+<p>Want to see what bare-metal x86 assembly can really do, without fiddling around with ancient hardware or emulators? :-) Watch the clips below to see and hear <b>Galaxeus</b> running live on real vintage hardware - complete with the secondary MDA telemetry screen, the custom floppy booter with built-in disk cloning, instant diskless ROM booting, and a butter-smooth 89 Hz / 89 FPS run on an 8-Bit!&nbsp;ISA&nbsp;VGA card without a single frame drop.</p>
+
+<div class="galaxeus-videos">
+  <div class="galaxeus-channel-wrap">
+    <a class="galaxeus-channel-link" href="https://youtube.com/@pling-sr" target="_blank" rel="noopener">
+      ▶ Pling's YouTube Channel
+    </a>
+  </div>
+
+  <div class="galaxeus-list">
+    <a class="galaxeus-card" href="https://www.youtube.com/watch?v=UHV5c2CAAtw" target="_blank" rel="noopener">
+      <div>
+        <span class="galaxeus-card-title">Galaxeus I - Floppy Boot &amp; 8-Bit ISA VGA</span>
+        <span class="galaxeus-card-sub">544×480 @ 16 colors on an OTI-VGA card with live MDA debug output</span>
+      </div>
+      <span class="galaxeus-badge">67 Hz / 67 FPS</span>
+    </a>
+
+    <a class="galaxeus-card" href="https://www.youtube.com/watch?v=tH4PR9Uwhdg" target="_blank" rel="noopener">
+      <div>
+        <span class="galaxeus-card-title">Galaxeus II - Diskless EPROM Boot on Real CRT</span>
+        <span class="galaxeus-card-sub">Booting directly from a 64 KB network card ROM with CMOS high scores</span>
+      </div>
+      <span class="galaxeus-badge">78 Hz / 78 FPS</span>
+    </a>
+
+    <a class="galaxeus-card" href="https://www.youtube.com/watch?v=MDW9Y0tLP48" target="_blank" rel="noopener">
+      <div>
+        <span class="galaxeus-card-title">Galaxeus III - Pushing the MCT-VGA-16 Card</span>
+        <span class="galaxeus-card-sub">Custom VGA timing parameters driving pure 386SX assembly to warp speed</span>
+      </div>
+      <span class="galaxeus-badge">89 Hz / 89 FPS (holy shit! lol!)</span>
+    </a>
+  </div>
+</div>
+
+<a href="../home.htm" style="display: inline-block; text-decoration: none; margin-bottom: 32px; margin-top: 32px; font-weight: bold; color: #007bff;">[home/back]</a>
+
+<script src="../script/stars.js"></script>
+
+</body>
+</html>

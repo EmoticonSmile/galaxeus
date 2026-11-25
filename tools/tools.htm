@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+ <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Story</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+<!-- Canvas for the stars -->
+<canvas id="star-bg"></canvas>
+
+<!-- Page content -->
+<div class="content">
+
+<div class="header-style-sub">    
+<img src="story.png" alt="The story">
+</div>
+
+<a href="../home.htm" class="back-button">back</a>
+
+<a href="../home.htm" style="display: inline-block; text-decoration: none; margin-top: 32px; font-weight: bold; color: #007bff;">[home/back]</a>
+
+<p>Building a bare-metal arcade game in pure x86 assembly means you can't just click "Export" in a modern game engine. To keep everything self-contained, fast, and clean, I wrote my own small toolchain to prepare the assets and build the bootable media for <strong>Galaxeus</strong>.</p>
+
+<h3>G-Slicer (Raw Floppy Disk Builder)</h3>
+<p><strong>Galaxeus</strong> doesn't need DOS, FAT, or any filesystem overhead to run on real hardware. <strong>G-Slicer</strong> takes the compiled 64 KB binary and writes the custom boot sector and game code directly onto the raw sectors of a 1.44 MB floppy disk. Put the disk in, power on the 386, and the game boots straight off the metal.</p>
+
+<h3>ASCII-to-ASM Sprite Generator</h3>
+<p>Every single graphic in <strong>Galaxeus</strong> lives directly inside the assembly source as data definitions. Instead of wrestling with bloated external sprite editors or binary asset loaders, I built a custom converter that turns plain-text ASCII art drawings straight into MASM-ready <code>.INC</code> files. You can literally open a sprite in Notepad, tweak a few characters, re-run the tool, and assemble.</p>
+
+<h3>Digital Audio Sample Converter</h3>
+<p>FM synthesis never gave me the punchy, high-energy arcade feel I wanted - so <strong>Galaxeus</strong> uses real 11 kHz 8-bit digital PCM samples through the Sound Blaster. This utility strips away unnecessary headers and converts raw sound effects into clean <code>DB</code> byte sequences that MASM compiles straight into the executable.</p>
+
+<h3>Built-in Bootloader &amp; Disk Cloner</h3>
+<p>Even the floppy bootloader itself doubles as a handy utility. When you exit the game on a floppy-booted machine, it drops right back into the loader menu, letting you tweak your Sound Blaster IRQ/DMA settings on the fly, boot over to a standard hard drive, or clone the entire game image onto a blank floppy disk without needing a single DOS utility.</p>
+
+
+<br>
+<a href="../home.htm" style="display: inline-block; text-decoration: none; margin-top: 32px; font-weight: bold; color: #007bff;">[home/back]</a>
+
+<script src="../script/stars.js"></script>
+
+</body>
+</html>

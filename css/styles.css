@@ -1,0 +1,74 @@
+
+ /* stars.css */
+    
+ /* black background */
+	body {
+		font-family: sans-serif;
+		margin: 20px;
+		padding: 0;
+		background-color: #000000;
+		color: #ffffff;
+	}
+
+ /* star background covers the entire window */
+	#star-bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: -1;
+		pointer-events: none;
+	}
+
+ /* text and graphics must stay above the moving stars */
+	.content {
+		position: relative;
+		z-index: 1; 
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+ /* style for the page header image */
+	.header-style {
+		text-align: center;
+		padding-top: 48px;
+		padding-bottom: 72px;
+	}  
+
+
+ /* style for the sub page header image */
+	.header-style-sub {
+		text-align: center;
+		padding-top: 48px;
+		padding-bottom: 16px;
+	}  
+
+ /* the standard back button for subpages */
+	.back-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
+		margin: 10px 0 32px;
+		font: bold 14px sans-serif;
+		color: #007bff;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.back-button::before {
+		content: "";
+		border: solid transparent;
+		border-width: 11px 19px 11px 0;
+		border-right-color: currentColor;
+	}
+
+	.back-button:hover {
+		color: #004494;
+	}
+
+ /* links readable on the dark background */
+	a {
+		color: #3399ff;
+	}

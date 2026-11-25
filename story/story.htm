@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+ <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Story</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+<!-- Canvas for the stars -->
+<canvas id="star-bg"></canvas>
+
+<!-- Page content -->
+<div class="content">
+
+<div class="header-style-sub">    
+<img src="story-crt.png" alt="The story">
+</div>
+
+<a href="../home.htm" class="back-button">back</a>
+
+<img src="../pics/funnyfare-mosaic.png" alt="funnyfare" style="display: block; width: 30%; margin: auto; padding: 24px 0 24px;">
+
+<p>It was the countryside in autumn 1982. By six o'clock the light was gone, the footpaths were wet with rain, and the streets reflected the lamplight. Jackets hung damp in the wardrobe, and well-worn boots stood on the doormat. TVs made the windows flicker blue in the evening. And everything was slower. That's when it all started.</p>
+
+<p>Nothing much ever happened in our quiet corner of the world, until a small machine arrived in the kid's bedroom - connected to an old black-and-white TV from a mail-order catalogue with a cheap coax cable. When we switched it on, the picture rolled until it stopped, and then the cursor sat there like a door to another world being half open. The cassette keys clicked. The tape hissed. We watched the loading bars on the screen, heads together, warm sweaters smelling of autumn and rain. Tension rose. Then came letters. Then grainy pictures. Then a kind of beepy music. A spaceship moved when you pressed a key. A Manic Miner journeyed through ancient caverns.<br> A star fell through the dark, looping on your own binary spell. It was closer to real magic than it would ever be again.</p>
+
+<p>Nobody knew a new era was coming. It just arrived like a weather front, inside catalogues and carried home in cardboard boxes. Suddenly it was all around. We were still supposed to do our homework, and school still started early, but the evenings became longer inside that little television glow. The world was becoming smaller and bigger at the same time, unknowingly expanding right there on our bedroom desk.</p>
+
+<p>I learned the patience of cassette tapes and the prayer of <code>LOAD ""</code>. I learned that counting starts from zero, and that trial and error is the best way to understand something. I typed in what the computer magazines printed and learned by watching how more gifted fellows practiced their craft. There was a real closeness to it: your ear pressed against the case, listening to the tape drive spin, feeling the machine getting warm under your hands, and the static aura of the TV's glass screen almost touching your nose. These November evenings stayed with me throughout my life: that first-time brightness, and the way a small screen could make a little room feel like open space.</p>
+
+<p>Copied tapes went from hand to hand as forbidden treasures. Those fortunate enough to have wealthier parents or generous grandparents had floppy disk drives, which most of us looked upon with envy. Still, the mighty arcade machines in the greasy German fries joints (Pommesbuden) always played in a league of their own. At home, we only got pale imitations, clumsy downgrades that never came close to that industrial-grade arcade quality.</p>
+
+<p>So I always wondered: If you just tried hard enough, if you pushed the machine to its absolute limit, couldn't you achieve that arcade perfection right there on your own desk?</p>
+
+<p><b>Galaxeus</b> grew out of exactly that feeling. I wanted absolute control: the fluid motion, the clean shot - and I wanted to understand the machine from its roots. Assembly was the only way to go: direct, at the lowest level, and optimized with OCD-level attention to detail. Every single line of code is so close to the hardware that you can almost feel its heartbeat.</p> 
+
+<p>I am incredibly happy with the result: the entire executable is only 55.1 KB, and it is fast. Very fast indeed. It easily runs at 544 x 480 at 67 Hz / 67 FPS on the slowest 80386 I could find. Every piece of hardware I tested maintained a steady 75 Hz / 75 FPS without any lag or stutter. However, since the speed scales directly with the framerate, I locked it by default at 67 Hz to preserve the exact pace of the gameplay the engine was designed for. Decades of coding tricks discovered since those early days are woven into every line of code. Even a 386SX running at only 16 MHz with an 8-bit ISA VGA card delivers this smooth performance.</p>
+
+<p>The gameplay is simple: guide the ship with the cursor keys, fire wisely and sparingly, and write your initials into the high score table. Enjoy the &rsquo;80s feeling I have tried to recreate with all my heart.</p>
+
+<p>Your thoughts and comments are always welcome, so please feel free to reach out by email.<br><br>
+<code>pling.core@gmx.de</code></p>
+<br>
+
+<center><h3>---- THE CODE ----</h3></center>
+
+<p>No high-level programming language was used for <b>Galaxeus</b>. It is all Assembly, even the sprite definitions.<br>I wrote some custom tools that generate ASM include files from sprite definitions done in ASCII, as well as include files containing the binary sound samples as definition sequences that the assembler could use directly.</p>
+
+<p>The assembler is MASM, as NASM was not around in the early 90s when this project was started. I tried using AI to convert the MASM code to modern NASM. Oh my... no way. It cannot be converted automatically; it has to be done by hand - even though there are no macros involved. At this point, I'm pretty sure MASM is our last line of defense against a full AI takeover. Just ask Claude, I'm pretty sure I gave him digital depression.</p>
+
+<p>In the end, I spent three months commenting the code in a professional manner. Surely, it already had plenty of comments, but they were written in a private, gibberish mix of German and English that I definitely didn't want to publish. And let's be honest, you have to comment Assembly like nothing else. Without it, looking back at code you spent two weeks wrestling with five years ago feels like trying to decipher alien technology from the Roswell UFO.</p>
+
+<p>But documentation is hard work, so a few years ago I discovered something: if you sneak jokes into the comments, the repetitive work actually becomes fun. You're not writing a reference manual anymore. You're writing a comedy. You actually get hooked, constantly looking for potential for a good, crude joke buried in the logic. Take this one, for example:</p>
+
+<pre><code>; No branches, no pipeline flushes - shit flows so clean through the
+; CPU's plumbing you can hear it whistle.</code></pre>
+
+<p>If you find this funny, go check out the source code. If you don't, you're probably better off just playing the game, haha!</p>
+
+<p>Getting this level of performance out of an old uncached 386SX required bypassing the standard BIOS functions and ignoring academic Assembly textbook fluff. I used some rather quirky and aggressive programming techniques like:</p>
+
+<ul>
+    <li><b>Extensive Self-Modifying Code (SMC):</b> eliminating slow branches and minimizing the binary size.</li>
+    <li><b>Opcode misalignment:</b> jumping directly into the middle of instructions for dual-purpose execution.</li>
+    <li><b>Embedded variables:</b> storing variables directly in the code stream to save critical memory bandwidth.</li>
+    <li><b>Parity Flag:</b> heavy use of this nearly forgotten oldie - the last real 8-bit warrior!</li>
+    <li><b>The undocumented SALC opcode:</b> replacing conditional branches with logic.</li>
+    <li><b>PIT manipulation:</b> driving the Programmable Interval Timer uppest and downest wildly like a manic yo-yo.</li>
+    <li><b>CPU halting:</b> completely halting the CPU (HLT) when there is nothing to do. Click. Lights out!</li>
+    <li><b>Stack hijacking:</b> using the CPU stack for high-speed bookkeeping of dirty VRAM bytes.</li>
+    <li><b>VRAM access optimization:</b> fast alignment detection for optimized word reads and writes to VRAM.</li>
+    <li><b>Custom VGA mode:</b> dropping low-resolution Mode X and customizing the high-resolution 640x480 planar mode for two pages with 16 colors at chwispy 544x480 and slurpee 67 Hz.</li>
+</ul>
+
+<p>The entire monolithic binary is currently only 55.1 KB. This includes all game logic, graphics, and full 11 kHz 8-bit digital audio samples for the Sound Blaster. If you drop the sample data, the game engine alone is just 12.5 KB (not much more than the text on this page).</p>
+
+<p>For the sound, I completely opted out of FM synthesis, as I always found its distinctive tone slightly weird and depressing. Digital samples are the only way to bring that authentic, high-energy arcade vibe!</p>
+
+<p>Just know <b>Galaxeus</b> was the absolute best I could do when it comes to Real Mode Assembly. I couldn't have done it any better in a thousand lifetimes.</p>
+
+
+<p>Greetings from Germany - November 22, 2026<br>
+<br>
+Stephan Riediger (Pling)</p>
+
+<br>
+<a href="../home.htm" style="display: inline-block; text-decoration: none; margin-top: 32px; font-weight: bold; color: #007bff;">[home/back]</a>
+
+<script src="../script/stars.js"></script>
+
+</body>
+</html>
