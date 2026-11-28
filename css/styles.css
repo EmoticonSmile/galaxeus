@@ -30,19 +30,24 @@
 	}
 
  /* style for the page header image */
-	.header-style {
-		text-align: center;
-		padding-top: 48px;
-		padding-bottom: 72px;
-	}  
+	.header-style img {
+	    display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+	/*  border: 2px solid red;  */  /* border for layout tests */
+	    padding-top: 48px;
+	    padding-bottom: 72px;
+	}
 
+	.header-style-sub img {
+	    display: block;  
+	    margin-left: auto;
+	    margin-right: auto;
+	 /* border: 2px solid red; */ /* border for layout tests */
+	    padding-top: 48px;
+	    padding-bottom: 16px;
+	}
 
- /* style for the sub page header image */
-	.header-style-sub {
-		text-align: center;
-		padding-top: 48px;
-		padding-bottom: 16px;
-	}  
 
  /* the standard back button for subpages */
 	.back-button {
