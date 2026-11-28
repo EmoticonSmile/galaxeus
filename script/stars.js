@@ -7,9 +7,9 @@
  const starCount = 250;
 
  function resize() {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
- }
+ 	 canvas.width = canvas.clientWidth;
+	 canvas.height = canvas.clientHeight;
+	}
 
  function createStars() {
           stars = [];
