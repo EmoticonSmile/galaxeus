@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pling's Galaxeus Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<!-- canvas for the stars -->
+<canvas id="star-bg"></canvas>
+
+<!-- page content -->
+<div class="content">
+    
+<div class="header-style">
+<img src="home-crt.png" alt="Welcome to Galaxeus">
+</div>
+
+<nav style="text-align: center; margin-bottom: 30px; font-family: sans-serif;">
+  <a href="clips/clips.htm"         style="margin: 0 8px; text-decoration: none; font-weight: bold; color: #007bff;">[Clips]</a>
+  <a href="cabinet/cabinet.htm"     style="margin: 0 8px; text-decoration: none; font-weight: bold; color: #007bff;">[Arcade Cabinet]</a>
+  <a href="story/story.htm"         style="margin: 0 8px; text-decoration: none; font-weight: bold; color: #007bff;">[The Story]</a>
+  <a href="downloads/downloads.htm" style="margin: 0 8px; text-decoration: none; font-weight: bold; color: #007bff;">[Downloads]</a>
+  <a href="readme/readme.htm"       style="margin: 0 8px; text-decoration: none; font-weight: bold; color: #007bff;">[Readme]</a>
+  <a href="impressum/impressum.htm" style="margin: 0 8px; text-decoration: none; font-weight: bold; color: #007bff;">[Impressum]</a>
+</nav>
+
+<div style="text-align: center;">
+    <img src="pics/scr_main-crt.png"
+         alt="Galaxeus title screen"
+         style="width: 45%; height: auto; margin: 35px 10px; opacity: 0.85;">
+
+    <img src="pics/scr_game-crt.png"
+         alt="Galaxeus gameplay"
+         style="width: 45%; height: auto; margin: 35px 10px; opacity: 0.85;">
+</div>
+
+<p>Welcome to <b>Galaxeus</b> - an authentic &rsquo;80s DOS and bare-metal arcade shooter written entirely in x86 assembly language. Built specifically for vintage ISA PC hardware, it delivers an industrial-quality &rsquo;80s arcade experience on four-decade-old machines, rarely seen before.</p>
+
+<p>Back in the 1980s, arcade machines in malls and fast-food joints were in a league of their own, while home computers usually got simplified, clunky, and often disappointing ports. Over the past decades, I worked on this ambitious project to close that gap. <b>Galaxeus</b> is engineered to run smoothly on even the slowest 386 ISA bus hardware. Even a puny 8-bit ISA VGA will be sufficient to experience the full speed at a rock-solid 67 frames per second at 16-color high-res. Crafted in pure assembly with no frameworks or abstractions, it squeezes every bit of performance out of old hardware to capture that true arcade feel.</p>
+
+<figure style="float: right; width: 40%; margin: 5px 0 5px 25px; text-align: center; opacity: 0.85;">
+    <img src="pics/scr_tele-crt.png"
+         alt="Galaxeus  In-Game Telemetry"
+         style="width: 100%; height: auto;">
+    <figcaption style="font-size: 0.85em; color: #aaa; margin-top: 10px;">
+        In-Game Telemetry
+    </figcaption>
+</figure>
+
+<p>As a decadently nerdy bonus, simply having an extra MDA or Hercules card installed automatically activates a dedicated text display for debugging and live in-game telemetry.</p>
+
+<p>Just like a real arcade machine, <b>Galaxeus</b> features an attract mode. If you leave it alone on the title screen, it starts playing short demos to show off the game. And it doesn't just fly around erratically like I drive my car on the autobahn. I coded a custom system so it looks like a real human is holding the joystick, doing proper maneuvers, last-second dodges, and timed shots. I wanted the cabinet to feel alive even when nobody is playing. Basically, it's my own little piece of fake AI. The whole thing fits into 140 bytes. &#128527;</p>
+
+<br>
+
+<p>Other hardware-level features include saving high scores to the battery-backed CMOS, direct LPT LED control, Boot ROM support, and a bare-metal Floppy Booter with configuration and disk-cloning options.</p>
+
+<figure style="float: right; width: 40%; margin: 10px 0px 5px 65px; text-align: center; opacity: 0.85;">
+    <img src="pics/scr_hi-crt.png"
+         alt="High Score: Enter your tag"
+         style="width: 100%; height: auto;">
+    <figcaption style="font-size: 0.85em; color: #aaa; margin-top: 10px;">
+         A Hi-Score the CMOS will remember!
+    </figcaption>
+</figure>
+
+<p>Galaxeus comes with everything you need to build an OS-less, solid-state, ROM-based arcade machine with no moving parts, like a hard drive or floppy disk. In fact, I built one.</p> 
+
+<p>I wrote my first lines of code back in 1982, and I&rsquo;ve woven every trick picked up along the way directly into <strong>Galaxeus</strong>. Over the years, I've found modern development's endless layers of abstraction getting increasingly overwhelming and disconnected. Today, it feels like snapping pre-made blocks together rather than building something from the ground up. Vibe coding is the final nail in the coffin. As someone who views coding as a true craft, I miss the hands-on joy of understanding a system down to its roots.</p>
+
+<p>With <b>Galaxeus</b>, I wanted to chop every binary vegetable and blend every digital spice from scratch, right down to the bare metal. The journey was just as much about mastering the quirks of classic hardware as it was about finishing the game - guided by a manic motto: solving yet-unsolved challenges unique to decades-old hardware. Seeing what you can do in pure assembly really puts the bloat of modern software into perspective.</p>
+
+<br>
+
+<p>The origin of this project goes all the way back to my childhood. When I was eleven years old in 1981, I saw my first arcade machine inside a showman's caravan at a local funfair, and since then I could not stop thinking about it. It was a bit like my own Harry Potter moment, stumbling into a hidden, magical world, even though I didn't have a clue how any of it worked back then.</p>
+
+
+<figure style="float: right; width: 40%; margin: 10px 0 5px 25px; text-align: center; opacity: 0.85;">
+    <img src="pics/galaxian-crt.png"
+         alt="Namco Galaxian"
+         style="width: 100%; height: auto;">
+    <figcaption style="font-size: 0.85em; color: #aaa; margin-top: 10px;">
+        Original Galaxian
+    </figcaption>
+</figure>
+
+<p>The game was <b>Galaxian</b>, which inspired the name of the project. That moment sparked a lifelong fascination with computers and science, making me want to understand how machines like that work and learn how to build one myself. After all these years, turning that childhood memory into a real arcade cabinet has been my favorite way to unwind and recharge my mental batteries.</p>
+
+<p>So <b>Galaxeus</b> is my nostalgic reminder of why so many of us fell in love with computing in the first place. Every single byte serves a purpose, every wire has a story, and the magic is still very real.</p>
+
+<p>Unfortunately, <b>Galaxeus</b> won't run as smoothly under DOSBox variants as it does on native hardware. This is due to a fundamental architectural flaw in the emulator: both DOSBox and DOSBox-X experience audio stuttering whenever the emulated frame rate exceeds the monitor's actual refresh rate. This happens because they tie video frames and audio data together into tight, interdependent chunks. The README provides tips on how to mitigate this. 86Box does a better job, but is still not as good as real hardware. Ultimately, I highly recommend running <b>Galaxeus</b> on real hardware - I promise the smoothness, crispness, and authentic arcade feel will amaze you!</p>
+
+<p><b>Controls: Galaxeus uses standard MAME keys to insert coins and start a 1- or 2-player game.</b></p> 
+
+<p>Galaxeus-specific keys:<p>
+
+<table style="table-layout: fixed;">
+    <tbody>
+        <tr><td>F1 </td><td>Reset High Score</td></tr>
+        <tr><td>F2 </td><td>Service Screen CRT/TFT Calibration</td></tr>
+        <tr><td>ESC&nbsp;</td><td>Quit / Rage Quit &#129324; / Leave Current Screen</td></tr>
+    </tbody>
+</table>
+
+<br>
+
+<p><a href="downloads/downloads.htm">Download Galaxeus</a> and see what it can do on your retro setup.</p>
+
+<br><br>
+ 
+<script src="script/stars.js"></script>
+
+</body>
+</html>
